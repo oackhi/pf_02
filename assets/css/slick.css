@@ -1,0 +1,114 @@
+/* .slick-arrow {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 0;
+    width: 20px;
+    height: 38px;
+    color: transparent;
+    z-index: 1;
+    transition: opacity 0.5s;
+    z-index: 1;
+}
+.slick-arrow:hover {
+    opacity: 0.7;
+} */
+/* 共通設定 */
+/* .slick-next::before,
+.slick-next::after,
+.slick-prev::before,
+.slick-prev::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    content: "";
+    vertical-align: middle;
+}
+.slick-next::after,
+.slick-prev::after {
+    width: 26px;
+    height: 26px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+} */
+/* next */
+/* .slick-next {
+    right: 390px;
+}
+.slick-next::after {
+    right: 4px;
+    transform: rotate(45deg);
+} */
+/* prev */
+/* .slick-prev {
+    left: 26px;
+}
+.slick-prev::after {
+    left: 4px;
+    transform: rotate(-135deg);
+}
+.slick-next::after,
+.slick-prev::after {
+    width: 10px;
+    height: 10px;
+}
+.slick-next {
+    right: 8px;
+}
+.slick-prev {
+    left: 8px;
+}
+.slick-next::after {
+    right: 2px;
+}
+
+.slick-dots {
+    padding: 10px 0;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+} */
+
+/* .container .slick-num {
+    bottom: 0;
+    left: 0;
+    line-height: 2;
+    position: absolute;
+    right: 0;
+    text-align: center;
+  } */
+/* 
+  .swiper-pagination {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-bottom: 50px;
+  } */
+
+/*位置を変える*/
+.slick-dots {
+    border-bottom: 1px solid lightgray;
+}
+/*ドット同士の間の距離を変える*/
+.slick-dots li {
+	width: 25px;
+}
+/*ドットのサイズと色を大きくする*/
+.slick-dots li button:before {
+    content: "";
+    border: 1px solid #000;
+    border-radius: 50%;
+	width: 10px;
+    height: 10px;
+	color: #000;
+}
+/*アクティブなスライドのドット色*/
+.slick-dots li.slick-active button:before {
+    background-color: #000;
+}
+.slick-dots {
+    bottom: -30px;
+}

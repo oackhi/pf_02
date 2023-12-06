@@ -15,23 +15,13 @@ header {
     box-sizing: border-box;
     z-index: 999;
 }
+/* .l-header__wrap {
+    flex-wrap: column;
+} */
 
-.l-header__menu ul {
-    display: flex;
-    justify-content: center;
-}
-.l-header__menu li {
-    margin-right: 20px;
-}
-.l-header__menu li:last-child {
-    margin-right: 0px;
-}
-.l-header__menu a {
-    color: gray;
-    text-decoration: none;
-}
-.l-header__menu a:hover {
-    border-bottom: 1px solid gray;
+.l-header__logo img {
+    width: 200px;
+    height: 80px;
 }
 .l-header__link {
     display: flex;
@@ -45,21 +35,66 @@ header {
     margin-left: 15px;
 }
 
-.p-itemcategory__list li,
-.p-collection__list li {
-    display: none;
-}
 
-.l-header__menu ul.active {
-    display: block;
-}
-.l-header__menu a {
-    transition: .3s;
-}
-.l-header__menu a:hover {
-    opacity: .7;
-} 
-.p-itemcategory__list.active li,
-.p-collection__list.active li {
-    display: block;
+@media screen and (max-width: 768px) {
+    /* SP style */
+    /* .l-header__menu {
+        order: 1;
+    }
+    .l-header__logo {
+        order: 2;
+    }
+    .l-header__link {
+        order: 3;
+    } */
+    .c-user {
+        display: none;
+    }
+ }
+
+@media screen and (min-width: 769px) {
+    /* PC style */
+    /* .l-header__menu {
+        order: 2;
+    }
+    .l-header__logo {
+        order: 1;
+    }
+    .l-header__link {
+        order: 3;
+    } */
+    .l-header__menu ul {
+        display: flex;
+        justify-content: center;
+    }
+    .l-header__menu li {
+        margin-right: 20px;
+    }
+    .l-header__menu li:last-child {
+        margin-right: 0px;
+    }
+    .l-header__menu a {
+        color: gray;
+        text-decoration: none;
+    }
+    .l-header__menu a:hover {
+        border-bottom: 1px solid gray;
+    }
+    .p-itemcategory__list li,
+    .p-collection__list li {
+        display: none;
+    }
+    .l-header__menu ul.active {
+        display: block;
+    }
+    .l-header__menu a {
+        transition: .3s;
+    }
+    .l-header__menu a:hover {
+        opacity: .7;
+    } 
+    .p-itemcategory__list.active li,
+    .p-collection__list.active li {
+        display: block;
+    }
 }
