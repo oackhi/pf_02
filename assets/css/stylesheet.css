@@ -1,8 +1,8 @@
 .p-slider__list {
-    height: 70vw;
+    height: 60vw;
 }
 .c-slider__items {
-    height: 70vw;
+    height: 60vw;
     width: 90%;
     background-size: cover;
     border-bottom: 1px solid lightgray;

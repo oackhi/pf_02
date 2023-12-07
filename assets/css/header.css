@@ -15,10 +15,6 @@ header {
     box-sizing: border-box;
     z-index: 999;
 }
-/* .l-header__wrap {
-    flex-wrap: column;
-} */
-
 .l-header__logo img {
     width: 200px;
     height: 80px;
@@ -50,7 +46,7 @@ header {
     .c-user {
         display: none;
     }
- }
+}
 
 @media screen and (min-width: 769px) {
     /* PC style */
@@ -74,27 +70,87 @@ header {
         margin-right: 0px;
     }
     .l-header__menu a {
+        font-size: 13px;
         color: gray;
         text-decoration: none;
     }
     .l-header__menu a:hover {
-        border-bottom: 1px solid gray;
+        text-decoration: underline 2px;
+    }
+    /*2階層目以降は横並びにしない*/
+    nav ul ul{
+        display: block;
+    }
+    /*下の階層のulや矢印の基点にするためliにrelativeを指定*/
+    nav ul li{
+        position: relative;
+    }
+    /*ナビゲーションのリンク設定*/
+    nav ul li a{
+        display: block;
+        text-decoration: none;
+        color: #999;
+        padding:20px 0 5px;
+        margin-right: 20px;
     }
     .p-itemcategory__list li,
     .p-collection__list li {
         display: none;
     }
-    .l-header__menu ul.active {
+    .has-child.active ul li{
         display: block;
     }
-    .l-header__menu a {
-        transition: .3s;
-    }
-    .l-header__menu a:hover {
-        opacity: .7;
-    } 
     .p-itemcategory__list.active li,
     .p-collection__list.active li {
         display: block;
+    }
+    .p-itemcategory__list,
+    .p-collection__list {
+        margin: 10px;
+        padding-left: 20px;
+    }
+    .p-itemcategory__list a,
+    .p-collection__list a {
+        margin-right: 0!important;
+        padding: 10px 0!important;
+        color: gray;
+        font-size: 11px;
+        text-align: left;
+    }
+    .p-itemcategory__list li,
+    .p-collection__list li {
+        margin-right: 0!important;
+    }
+    .p-itemcategory__list a:hover,
+    .p-collection__list a:hover {
+        text-decoration: underline;
+    }
+    .has-child ul{
+        /*絶対配置で位置を指定*/
+        position: absolute;
+        left: -20px;
+        top: 40px;
+        z-index: 4;
+        background: #fff;
+        width: 170px;
+        /*はじめは非表示*/
+        display: none;
+        box-shadow: 0 0 1px gray;
+    }
+    /*2階層目を持つliの矢印の設定*/
+    .has-child::before{
+        content:'';
+        position: absolute;
+        right: 5px;
+        top: 22px;
+        width:6px;
+        height:6px;
+        border-top: 2px solid #999;
+        border-right:2px solid #999;
+        transform: rotate(135deg);
+    }     
+    nav ul li.has-child.active::before{
+        top: 26px;
+        transform: rotate(-45deg);
     }
 }

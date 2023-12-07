@@ -88,13 +88,12 @@
     margin-bottom: 50px;
   } */
 
-/*位置を変える*/
+
 .slick-dots {
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid lightgray; /*ドットの位置を変える*/
 }
-/*ドット同士の間の距離を変える*/
 .slick-dots li {
-	width: 25px;
+	width: 25px; /*ドット同士の間の距離を変える*/
 }
 /*ドットのサイズと色を大きくする*/
 .slick-dots li button:before {
@@ -105,10 +104,43 @@
     height: 10px;
 	color: #000;
 }
-/*アクティブなスライドのドット色*/
 .slick-dots li.slick-active button:before {
-    background-color: #000;
+    background-color: #000; /*アクティブなスライドのドット色*/
 }
 .slick-dots {
     bottom: -30px;
 }
+.slick-next{
+    right:40vw!important;
+}
+
+.slick-prev{
+    left:40vw!important;
+    z-index: 1;
+}
+.slick-next::before,
+.slick-next::after,
+.slick-prev::before,
+.slick-prev::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    content: "";
+    vertical-align: middle;
+    }
+.slick-next::after,
+.slick-prev::after {
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+}
+.slick-next::after {
+    right: 4px;
+    transform: rotate(45deg);
+}
+.slick-prev::after {
+    left: 4px;
+    transform: rotate(-135deg);
+}  
