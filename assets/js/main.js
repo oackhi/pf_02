@@ -1,26 +1,3 @@
-// const parentMenu = document.querySelectorAll(".l-header__menu li a");
-// for (let i = 0; i < parentMenu.length; i++) {
-//     parentMenu[i].addEventListener("click", function (e) {
-//         e.preventDefault();
-//         this.nextElementSibling.classList.toggle("active");
-//     })
-// }
-
-
-// $(function () {
-//     $('.ac-parent').on('click', function () {
-//         $(this).next().slideToggle();
-//         //openクラスをつける
-//         $(this).toggleClass("open");
-//         //クリックされていないac-parentのopenクラスを取る
-//         $('.ac-parent').not(this).removeClass('open');
-
-//         // 一つ開くと他は閉じるように
-//         $('.ac-parent').not($(this)).next('.ac-child').slideUp();
-//     });
-// });
-
-
 function mediaQueriesWin() {
     var width = $(window).width();
     if (width >= 768) {
@@ -49,6 +26,38 @@ $(window).on('load', function () {
     mediaQueriesWin();
 });
 
+// 検索ボックス
+$(".open-btn1").click(function () {
+    $(this).toggleClass('active');//.open-btnは、クリックごとにbtnactiveクラスを付与＆除去。1回目のクリック時は付与
+    $("#search-wrap").fadeToggle();
+    $("#search-wrap").toggleClass('active');//#search-wrapへpanelactiveクラスを付与
+
+});
+
+// ハンバーガー
+$(function () {
+    $('.humberger').on('click', function () {
+        $('.humberger').toggleClass('isClosed');
+        // var state = false;
+        // var pos;
+        // if (state == false) {
+        //     pos = $(window).scrollTop();
+        //     $('.humberger-wrap, header').addClass('fixed').css({ 'top': -pos });
+        //     state = true;
+        // } else {
+        //     $('.humberger-wrap, header').removeClass('fixed').css({ 'top': 0 });
+        //     window.scrollTo(0, pos);
+        //     state = false;
+        // }
+    });
+    $('.humberger').on('click', function () {
+        $('header').toggleClass('active');
+        $('.l-header__menu').toggleClass('active');
+        $('.p-humbergerBottom').toggleClass('active');
+    });
+});
+
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -69,18 +78,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+
 $('.p-slider__list').slick({
-    arrows: true,
-    dots: true
+    dots: true,
+    prevArrow: '<button class="slick-arrow prev-arrow"></button>',
+    nextArrow: '<button class="slick-arrow next-arrow"></button>',
 });
 
-const mql = window.matchMedia('screen and (max-width: 768px)');
+const mql = window.matchMedia('screen and (max-width: 869px)');
 function checkBreakPoint(mql) {
     if (mql.matches) {
         // スマホ向け（768px以下のとき）
         $('.p-news__list').not('.slick-initialized').slick({
             arrows: false,
-            variableWidth: true
+            variableWidth: true,
+            slidesToShow: 1
         });
     } else {
         // PC向け

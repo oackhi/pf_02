@@ -19,6 +19,13 @@
             <h1 class="l-header__logo">
                 <a href="#"><img src="./assets/images/logo.png" alt="logo"/></a>
             </h1>
+            <button type="button" class="humberger">
+                <span class="humberger-bar">
+                        <span class="humberger-first"></span>
+                        <span class="humberger-second"></span>
+                        <span class="humberger-third"></span>
+                </span>
+            </button>
             <nav class="l-header__menu">
                 <ul>
                     <li class="has-child">
@@ -47,8 +54,19 @@
                 </ul>
             </nav>
             <div class="l-header__link">
-                <p class="c-link__icon"><img src="./assets/images/icon-search.png" /></p>
-                <a href="#" class="c-link__icon c-user"><img src="./assets/images/icon-user.png" /></a>
+                <div class="p-searchbox">
+                    <div class="open-btn1"><img src="./assets/images/icon-search.png" /></div>
+                    <div id="search-wrap">
+                        <form role="search" method="get" id="searchform" action="">
+                            <input type="text" value="" name="" id="search-text" placeholder="検索">
+                            <input type="submit" id="searchsubmit" value="">
+                        </form>
+                    </div>
+                </div>
+                <div class="p-humbergerBottom">
+                    <a href="#" class="c-link__icon c-user"><img src="./assets/images/icon-user.png" /><p>ログイン</p></a>
+                    <a href="#" class="c-link__icon humberger-instagram"><img src="./assets/images/icon-instagram.png" /></a>
+                </div>
                 <a href="#" class="c-link__icon"><img src="./assets/images/icon-shopping.png" /></a>
             </div>
         </header>

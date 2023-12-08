@@ -37,7 +37,7 @@
     color: gray;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 869px) {
     /* SP style */
     .l-footer__wrap {
         padding: 30px 0;
@@ -52,7 +52,7 @@
     }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 870px) {
     /* PC style */
     .l-footer__wrap {
         padding: 50px 0;
