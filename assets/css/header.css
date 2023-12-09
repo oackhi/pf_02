@@ -1,6 +1,9 @@
 html {
     font-family: sans-serif;
 }
+body {
+    padding-top: 150px;
+}
 header {
     display: flex;
     width: 100%;
@@ -129,7 +132,7 @@ header {
     }
     .l-header__menu {
         position: fixed;
-        top: 15vw;
+        top: 0;
         right: 0;
         z-index: 1;
         width: 100vw;
