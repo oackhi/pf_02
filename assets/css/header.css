@@ -123,6 +123,10 @@ header {
     .l-header__link {
         order: 3;
     }
+    .l-header__logo img {
+        width: auto;
+        height: 80px;
+    }
     .l-header__menu {
         position: fixed;
         top: 15vw;
