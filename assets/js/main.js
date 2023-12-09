@@ -1,6 +1,46 @@
+//スクロール
+$(function () {
+    $(window).scroll(function () {
+        $('.fadein').each(function () {
+            var position = $(this).offset().top;
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+            if (scroll > position - windowHeight + 30) {
+                $(this).addClass('scroll-fadein');
+            }
+        });
+    });
+});
+
+
+//スクロール　ヘッダー固定
+let start_position = 0,//初期位置０
+    window_position,
+    $window = $(window),
+    $header = $('header')
+// スクロールイベントを設定
+$window.on('scroll', function () {
+    // スクロール量の取得
+    window_position = $(this).scrollTop();
+    // スクロール量が初期位置より小さければ，
+    // 上にスクロールしているのでヘッダーフッターを出現させる
+    // if (width > 870) {
+    if (window_position <= start_position) {
+        $header.css('top', '0');
+    } else {
+        $header.css('top', '-150px');
+    }
+    // 現在の位置を更新する
+    start_position = window_position;
+});
+// 中途半端なところでロードされても良いようにスクロールイベントを発生させる
+$window.trigger('scroll');
+
+
+//アコーディオンアイコン
 function mediaQueriesWin() {
     var width = $(window).width();
-    if (width >= 768) {
+    if (width > 870) {
         $(".has-child>a").off('click');
         $(".has-child>a").on('click', function () {
             console.log("Clicked!");
@@ -26,6 +66,7 @@ $(window).on('load', function () {
     mediaQueriesWin();
 });
 
+
 // 検索ボックス
 $(".open-btn1").click(function () {
     $(this).toggleClass('active');//.open-btnは、クリックごとにbtnactiveクラスを付与＆除去。1回目のクリック時は付与
@@ -38,17 +79,6 @@ $(".open-btn1").click(function () {
 $(function () {
     $('.humberger').on('click', function () {
         $('.humberger').toggleClass('isClosed');
-        // var state = false;
-        // var pos;
-        // if (state == false) {
-        //     pos = $(window).scrollTop();
-        //     $('.humberger-wrap, header').addClass('fixed').css({ 'top': -pos });
-        //     state = true;
-        // } else {
-        //     $('.humberger-wrap, header').removeClass('fixed').css({ 'top': 0 });
-        //     window.scrollTo(0, pos);
-        //     state = false;
-        // }
     });
     $('.humberger').on('click', function () {
         $('header').toggleClass('active');
@@ -59,7 +89,7 @@ $(function () {
 
 
 
-
+//アコーディオン
 document.addEventListener('DOMContentLoaded', function () {
 
     const accordionTitle = document.querySelectorAll('.bl_accordionTitle');
@@ -79,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+//slick
 $('.p-slider__list').slick({
     dots: true,
     prevArrow: '<button class="slick-arrow prev-arrow"></button>',
@@ -88,11 +119,20 @@ $('.p-slider__list').slick({
 const mql = window.matchMedia('screen and (max-width: 869px)');
 function checkBreakPoint(mql) {
     if (mql.matches) {
-        // スマホ向け（768px以下のとき）
+        $('.p-news__list').on("init", function (event, slick) {
+            $(this).append('<div class="slick-num"><span class="now-count"></span> / <span class="all-count"></span></div>');
+            $(".now-count").text(slick.currentSlide + 1); // 現在のスライド番号(+1が無いと0からスタートしてしまう)
+            $(".all-count").text(slick.slideCount); // スライドの総数
+        })
         $('.p-news__list').not('.slick-initialized').slick({
-            arrows: false,
-            variableWidth: true,
-            slidesToShow: 1
+            // dots: true,
+            centerMode: true,
+            slidesToShow: 1,
+            prevArrow: '<button class="slick-arrow prev-arrow"></button>',
+            nextArrow: '<button class="slick-arrow next-arrow"></button>',
+        });
+        $('.p-news__list').on("beforeChange", function (event, slick, currentSlide, nextSlide) {
+            $(".now-count").text(nextSlide + 1); // 現在のスライド番号の次のスライドになったら番号を+1
         });
     } else {
         // PC向け
@@ -101,7 +141,6 @@ function checkBreakPoint(mql) {
 }
 // ブレイクポイントの瞬間に発火
 mql.addListener(checkBreakPoint);
-
 // 初回チェック
 checkBreakPoint(mql);
 

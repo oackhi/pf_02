@@ -1,33 +1,28 @@
 html {
     font-family: sans-serif;
 }
-/* .fixed{
-    position: fixed;
-} */
 header {
     display: flex;
     width: 100%;
     height: 150px;
     background-color: #fff;
-    /* position: sticky; */
     top: 0;
     transition: 0.5s;
     align-items: center;
-    padding: 0 5rem;
+    padding: 0 15vw;
     box-sizing: border-box;
     z-index: 999;
+    position: fixed;
 }
+
 .l-header__logo img {
-    width: 200px;
-    height: 80px;
+    width: auto;
+    height: 130px;
 }
 .l-header__link {
     display: flex;
 }
-.c-link__icon img {
-    width: 25px;
-    height: 25px;
-}
+.c-link__icon img,
 .open-btn1 img {
     width: 25px;
     height: 25px;
@@ -39,18 +34,14 @@ header {
 .p-collection__list li {
     display: none;
 }
-.has-child.active ul li{
-    display: block;
-}
+.has-child.active ul li,
 .p-itemcategory__list.active li,
-.p-collection__list.active li {
+.p-collection__list.active li{
     display: block;
 }
 .open-btn1.active{
     position: absolute;
-    top: 10%;
-    left: 90vw;
-    transform: translateY(-50%);
+    right: 16vw;
     z-index: 10;
     background: url(./../images/icon-close.png) no-repeat center;
     background-size: 25px 25px;
@@ -63,7 +54,6 @@ header {
 .open-btn1:hover {
     cursor: pointer;
 }
-
 #search-wrap {
     display: none;
     position: absolute;
@@ -72,15 +62,14 @@ header {
     box-sizing: border-box;
     background-color: #fff;
     position: absolute;
-    padding: 20px 50px;
+    padding: 3.8vw 20vw;
     top: 0;
     left: 0;
 }
 #search-wrap.active {
     display: block;
 }
-#search-wrap input{
-    -webkit-appearance:none;/*SafariやChromeのデフォルトの設定を無効 */
+#search-text{
     outline: 1px solid #000;;
     cursor: pointer;
     color: gray;
@@ -93,9 +82,9 @@ header {
     width: 55%;
     border: none;
     letter-spacing: 0.05em;
-    height: 18px;
+    /* height: 18px; */
     padding: 10px;
-    padding-right: 60px;
+    padding-right: 4vw;
 }
 #search-text::placeholder {
 	text-align: start;
@@ -103,7 +92,7 @@ header {
 #searchsubmit {
     position: absolute;
     top: 50%;
-    left: 85vw;
+    right: 21vw;
     transform: translateY(-50%);
     background: url(./../images/icon-search.png) no-repeat;
     background-size: 25px 25px;
@@ -124,7 +113,6 @@ header {
         display: flex;
         justify-content: space-between;
         padding: 0 1rem!important;
-        height: 20vw;
     }
     .l-header__menu {
         order: 1;
@@ -137,7 +125,7 @@ header {
     }
     .l-header__menu {
         position: fixed;
-        top: 20vw;
+        top: 15vw;
         right: 0;
         z-index: 1;
         width: 100vw;
@@ -159,28 +147,25 @@ header {
         background-color: #f3f3f3;
         cursor: pointer;
     }
-
-    #search-wrap.active {
-        height: 20vw;
-    }
     #search-wrap {
         padding: 0;
     }
     #searchsubmit {
-        right: 5rem;
+        right: 12%;
     }
     #search-text {
         left: 0;
-        width:  calc(80% - 25px);
-        margin: 0 25px 0 1.1rem;
+        width: 85%;
+        margin-left: 4%;
+        box-sizing: border-box;
     }
+
     /*humbergerで使用*/
     header.active,
     .l-header__menu.active,
     .p-humbergerBottom.active{ 
         position: fixed;
     }
-
     .p-humbergerBottom {
         display: none;
         position: absolute;
@@ -205,7 +190,9 @@ header {
     .c-user p {
         display: block;
     }
-
+    .open-btn1.active {
+        right: 6%;
+    }
     /*humberger*/
     .humberger {
         display: block;
@@ -280,18 +267,24 @@ header {
 
 @media screen and (min-width: 870px) {
     /* PC style */
+    .l-header__logo {
+        flex: 1;
+        margin-right: 20px;
+    }
     .l-header__menu {
-        margin: 0 auto;
+        flex: 4;
+        margin-right: 20px;
     }
     .l-header__link {
-        margin: 0 0 0 0 auto;
+        flex:1.5;
+        justify-content: flex-end;
     }
     .humberger {
         display: none;
     }
     .l-header__menu ul {
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
     }
     .l-header__menu li {
         margin-right: 20px;
@@ -323,7 +316,6 @@ header {
         display: block;
         text-decoration: none;
         color: #999;
-        padding:20px 0 5px;
         margin-right: 20px;
     }
 
@@ -356,7 +348,7 @@ header {
         /*絶対配置で位置を指定*/
         position: absolute;
         left: -20px;
-        top: 40px;
+        top: 15px;
         z-index: 4;
         background: #fff;
         width: 170px;
@@ -369,7 +361,7 @@ header {
         content:'';
         position: absolute;
         right: 5px;
-        top: 22px;
+        top: 2px;
         width:6px;
         height:6px;
         border-top: 2px solid #999;
@@ -377,7 +369,13 @@ header {
         transform: rotate(135deg);
     }     
     nav ul li.has-child.active::before{
-        top: 26px;
+        top: 4px;
         transform: rotate(-45deg);
+    }
+}
+
+@media screen and (max-width: 1150px) and (min-width: 870px) {
+    header {
+        padding: 0 50px;
     }
 }

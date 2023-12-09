@@ -1,3 +1,15 @@
+.fadein {
+    opacity : 0;
+    transform : translate(0, 50px);
+    transition : all 1s;
+  }
+.fadein.scroll-fadein{
+    opacity : 1;
+    transform : translate(0, 0);
+}
+
+
+/*slider*/
 .p-slider__list {
     height: 60vw;
 }
@@ -8,16 +20,14 @@
     border-bottom: 1px solid lightgray;
 }
 .c-image1 {
-    background-image: url(./../images/sample.jpg);
+    background-image: url(./../images/slide1.jpeg);
 }
 .c-image2 {
-    background-image: url(./../images/sample.jpg);
+    background-image: url(./../images/slide2.jpeg);
 }
 .c-image3 {
-    background-image: url(./../images/sample.jpg);
+    background-image: url(./../images/slide3.jpeg);
 }
-
-
 
 
 /*news*/
@@ -81,6 +91,7 @@
 }
 .p-products__text {
     padding: 15px 0;
+    position: absolute;
 }
 
 
@@ -111,6 +122,7 @@
 }
 .p-recommend__text {
     padding: 15px 0;
+    position: absolute;
 }
 
 
@@ -126,7 +138,8 @@
 .c-concept {
     position: relative;
     float: left;
-    background-image: url(./../images/sample.jpg);
+    background-image: url(./../images/banner1.jpeg);
+    background-size: cover;
     width: calc(50% - 2vw);
     height: 46vw;
     margin: 1vw;
@@ -142,7 +155,8 @@
 .c-craft {
     position: relative;
     float: left;
-    background-image: url(./../images/sample.jpg);
+    background-image: url(./../images/banner2.jpeg);
+    background-size: cover;
     width: calc(50% - 2vw);
     height: 22vw;
     margin: 1vw;
@@ -158,7 +172,8 @@
 .c-quality {
     position: relative;
     float: left;
-    background-image: url(./../images/sample.jpg);
+    background-image: url(./../images/banner3.jpeg);
+    background-size: cover;
     width: calc(50% - 2vw);
     height: 22vw;
     margin: 1vw;
@@ -170,6 +185,7 @@
     top: 10%;
     left: 20px;
 }
+
 
 /*button*/
 .c-allview {
@@ -207,7 +223,15 @@
 
 @media screen and (max-width: 869px) {
     /* SP style */
+    .l-slider {
+        padding-bottom: 50px;
+    }
+
+
     /*news*/
+    .l-news {
+        padding-bottom: 50px;
+    }
     .p-news__list {
         padding-left: 20px;
     }
@@ -220,6 +244,7 @@
         height: 55vw;
     }
 
+
     /*products*/
     .l-products {
         padding-bottom: 50px;
@@ -231,8 +256,12 @@
         margin: 25px 25px 0;
     }
     .p-products__list li {
-        width: calc(100% / 2 - 10px);
-        margin: 0.6vw;
+        width: calc(100% / 2 - 1vw);
+        margin: 0.5vw;
+        height: 55vw;
+    }
+    .c-products__img {
+        position: relative;
     }
     .c-products__img img {
         width: 100%;
@@ -260,8 +289,9 @@
         margin: 25px 25px 0;
     }
     .p-recommend__list li {
-        width: calc(100% / 2 - 10px);
-        margin: 0.6vw;
+        width: calc(100% / 2 - 1vw);
+        margin: 0.5vw;
+        height: 55vw;
     }
     .c-recommend__img img {
         width: 100%;
@@ -277,6 +307,7 @@
         font-size: 11px;
     }
 
+
     /*banner*/
     .c-concept::before {
         font-size: 20px;
@@ -290,6 +321,11 @@
 }
 @media screen and (min-width: 870px) {
     /* PC style */
+    .section-wrap {
+        padding:0 8vw;
+    }
+
+
     /*news*/
     .l-news {
         width: calc(100% - 50px);
@@ -304,17 +340,21 @@
         margin-right: 0;
     }
     .c-news__img {
-        height: 15vw;
         overflow:hidden;
+        position: relative;
     }
     .c-news__img img{
         width: 100%;
-        height: 200px;
+        height: 13vw;
         transition: all 0.5s ease-in-out;
         object-fit: cover;
     }
     .c-news__img img:hover {
         transform:scale(1.02);
+    }
+    .p-news__text {
+        position: absolute;
+        width: calc(100% / 4 - 5vw)
     }
 
 
@@ -328,28 +368,28 @@
         margin: 20px 0;
     }
     .p-products__list li {
+        position: relative;
         width: calc(100% / 4);
         margin-right: 10px;
+        height: 25vw;
     }
     .p-products__list li:last-child {
         margin-right: 0px;
     }
     .c-products__img {
         position: relative;
-        height: 200px;
-        /* margin: 0 auto; */
-        overflow: hidden;
-        cursor: pointer;
+        width: 100%;
     }
     .c-products__img img {
-        position: absolute;
         width: 100%;
-        height: 200px;
-        /* -webkit-transition: .5s ease-in-out; */
+        aspect-ratio: 1;
+        position: absolute;
+        -webkit-transition: .5s ease-in-out;
         transition: .2s ease-in-out;
     }
     .p-products__list a:hover img:nth-of-type(1) {
         transform:scale(1.02);
+        box-sizing: border-box;
     }
     .p-products__list a:hover img:nth-of-type(2) {
         opacity: 0;
@@ -359,6 +399,9 @@
     }
     .c-products__name {
         font-size: 13px;
+    }
+    .p-products__text {
+        bottom: 0;
     }
 
 
@@ -372,28 +415,28 @@
         margin: 20px 0;
     }
     .p-recommend__list li {
+        position: relative;
         width: calc(100% / 4);
         margin-right: 10px;
+        height: 25vw;
     }
     .p-recommend__list li:last-child {
         margin-right: 0px;
     }
     .c-recommend__img {
         position: relative;
-        height: 200px;
-        /* margin: 0 auto; */
-        overflow: hidden;
-        cursor: pointer;
+        width: 100%;
     }
     .c-recommend__img img {
-        position: absolute;
         width: 100%;
-        height: 200px;
-        /* -webkit-transition: .5s ease-in-out; */
+        aspect-ratio: 1;
+        position: absolute;
+        -webkit-transition: .5s ease-in-out;
         transition: .2s ease-in-out;
     }
     .p-recommend__list a:hover img:nth-of-type(1) {
         transform:scale(1.02);
+        box-sizing: border-box;
     }
     .p-recommend__list a:hover img:nth-of-type(2) {
         opacity: 0;
@@ -403,6 +446,9 @@
     }
     .c-recommend__name {
         font-size: 13px;
+    }
+    .p-recommend__text {
+        bottom: 0;
     }
 
 
@@ -416,4 +462,16 @@
     .c-quality::before {
         font-size: 30px;
     }
+}
+
+@media screen and (max-width: 1150px) and (min-width: 870px) {
+    /* PC style */
+    .section-wrap {
+        padding: 0 30px;
+    }
+    .p-recommend__list li,
+    .p-products__list li {
+        height: 29vw;
+    }
+
 }
