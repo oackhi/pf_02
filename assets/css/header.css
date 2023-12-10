@@ -20,7 +20,7 @@ header {
 
 .l-header__logo img {
     width: auto;
-    height: 130px;
+    height: 100px;
 }
 .l-header__link {
     display: flex;

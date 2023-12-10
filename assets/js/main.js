@@ -136,6 +136,7 @@ function checkBreakPoint(mql) {
     } else {
         // PC向け
         $('.p-news__list.slick-initialized').slick('unslick');
+        $('.slick-num').remove();// 追加
     }
 }
 // ブレイクポイントの瞬間に発火
