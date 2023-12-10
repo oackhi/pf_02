@@ -65,7 +65,6 @@ header {
     box-sizing: border-box;
     background-color: #fff;
     position: absolute;
-    padding: 3.8vw 20vw;
     top: 0;
     left: 0;
 }
@@ -158,12 +157,13 @@ header {
         padding: 0;
     }
     #searchsubmit {
-        right: 12%;
+        right: 50px;
     }
     #search-text {
         left: 0;
-        width: 85%;
+        width: calc(96% - 45px);
         margin-left: 4%;
+        margin-right: 45px;
         box-sizing: border-box;
     }
 
@@ -198,7 +198,7 @@ header {
         display: block;
     }
     .open-btn1.active {
-        right: 6%;
+        right: 15px;
     }
     /*humberger*/
     .humberger {

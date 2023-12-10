@@ -482,13 +482,3 @@
         height: 29vw;
     }
 }
-@media screen and (max-width: 1150px) and (min-width: 870px) {
-    /* PC style */
-    .section-wrap {
-        padding: 0 30px;
-    }
-    .p-recommend__list li,
-    .p-products__list li {
-        height: 29vw;
-    }
-}

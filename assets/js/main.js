@@ -2,9 +2,9 @@
 $(function () {
     $(window).scroll(function () {
         $('.fadein').each(function () {
-            var position = $(this).offset().top;
-            var scroll = $(window).scrollTop();
-            var windowHeight = $(window).height();
+            const position = $(this).offset().top;
+            const scroll = $(window).scrollTop();
+            const windowHeight = $(window).height();
             if (scroll > position - windowHeight + 30) {
                 $(this).addClass('scroll-fadein');
             }
@@ -39,12 +39,11 @@ $window.trigger('scroll');
 
 //アコーディオンアイコン
 function mediaQueriesWin() {
-    var width = $(window).width();
+    const width = $(window).width();
     if (width > 870) {
         $(".has-child>a").off('click');
         $(".has-child>a").on('click', function () {
-            console.log("Clicked!");
-            var parentElem = $(this).parent();
+            const parentElem = $(this).parent();
             // 他のメニューを閉じる
             $('.has-child').not(parentElem).removeClass('active');
             $('.has-child').not(parentElem).children('ul').slideUp();
@@ -75,6 +74,7 @@ $(".open-btn1").click(function () {
 
 });
 
+
 // ハンバーガー
 $(function () {
     $('.humberger').on('click', function () {
@@ -86,7 +86,6 @@ $(function () {
         $('.p-humbergerBottom').toggleClass('active');
     });
 });
-
 
 
 //アコーディオン
