@@ -10,9 +10,6 @@
 
 
 /*slider*/
-.p-slider__list {
-    height: 100vh;
-}
 .c-slider__items {
     height: 100vh;
     width: 100%;
@@ -222,9 +219,6 @@
     /* SP style */
     .l-slider {
         padding-bottom: 50px;
-    }
-    .p-slider__list {
-        height: 60vh;
     }
     .c-slider__items {
         height: 60vh;
